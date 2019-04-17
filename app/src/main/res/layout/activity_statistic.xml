@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mxn.soul.flowingdrawer_core.FlowingDrawer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.statistic.StatisticActivity"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:edPosition="1"
+    app:edMenuSize="360dp"
+    app:edMenuBackground="@color/iconColor"
+    android:id="@+id/slider">
+
+
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor" />
+
+
+
+    <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
+        android:id="@+id/side_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/frame_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="100dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_encloser"
+                android:layout_centerInParent="true"
+                tools:ignore="ContentDescription" />
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/exerciseSpinner"
+                android:layout_width="240dp"
+                android:layout_height="80dp"
+                app:spn_labelTextSize="40sp"
+                android:layout_centerInParent="true"
+                style="@style/no_frame_spinner_style">
+
+            </com.rey.material.widget.Spinner>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_encloser"
+                android:layout_centerInParent="true"
+                tools:ignore="ContentDescription" />
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/weightSpinner"
+                android:layout_width="240dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                style="@style/no_frame_spinner_style"
+                app:spn_labelTextSize="24sp">
+
+            </com.rey.material.widget.Spinner>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
+
+</com.mxn.soul.flowingdrawer_core.FlowingDrawer>

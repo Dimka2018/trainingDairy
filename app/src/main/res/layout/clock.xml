@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:clock="http://schemas.android.com/apk/res-auto">
+
+    <com.xenione.digit.TabDigit
+        android:id="@+id/charHighMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        clock:backgroundColor="#ffffff"
+        clock:padding="10dp"
+        clock:textColor="#000000"
+        clock:textSize="100sp" />
+
+    <com.xenione.digit.TabDigit
+        android:id="@+id/charLowMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        clock:backgroundColor="#ffffff"
+        clock:padding="10dp"
+        clock:textColor="#000000"
+        clock:textSize="100sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:textColor="@android:color/white"
+        android:textSize="60sp" />
+
+    <com.xenione.digit.TabDigit
+        android:id="@+id/charHighSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        clock:backgroundColor="#ffffff"
+        clock:padding="10dp"
+        clock:textColor="#000000"
+        clock:textSize="100sp"/>
+
+    <com.xenione.digit.TabDigit
+        android:id="@+id/charLowSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        clock:backgroundColor="#ffffff"
+        clock:padding="10dp"
+        clock:textColor="#000000"
+        clock:textSize="100sp"/>
+</merge>

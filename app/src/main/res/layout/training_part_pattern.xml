@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <import type="com.fisherman.trainingdiary.activity.view.Converter"/>
+
+        <variable
+            name="trainingPart"
+            type="com.fisherman.trainingdiary.entity.TrainingPart"/>
+        <variable
+            name="exerciseNumber"
+            type="android.databinding.ObservableInt"/>
+    </data>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/globalContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/exerciseContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical">
+
+        <com.fisherman.trainingdiary.activity.view.adapter.autorefresh.AutoRefreshableSpinner
+            android:id="@+id/exerciseSpinner"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            app:trainingPart="@{trainingPart}"/>
+
+
+        <EditText
+            android:id="@+id/numberSets"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="@string/enter_sets"
+            android:inputType="number"
+            style="@style/frame_edit_style"
+            android:text="@={Converter.convertIntegerToString(trainingPart.numberSets)}"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/numberReps"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="@string/enter_reps"
+            android:inputType="number"
+            style="@style/frame_edit_style"
+            android:text="@={Converter.convertIntegerToString(trainingPart.numberReps)}"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:id="@+id/upper_trap"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ic_corner_image"
+            bind:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/exercise"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="24sp"
+            android:text="@{@string/exercise(exerciseNumber)}"
+            style="@style/button_text_style"/>
+
+        <ImageView
+            android:id="@+id/spear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_spear"
+            android:layout_toLeftOf="@id/exercise"
+            android:layout_centerVertical="true"
+            bind:ignore="ContentDescription"
+            android:layout_toStartOf="@id/exercise" />
+
+        <ImageView
+            android:id="@+id/delete_day_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/exercise"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_cancel"
+            bind:ignore="ContentDescription"
+            android:layout_toEndOf="@id/exercise" />
+
+    </RelativeLayout>
+</RelativeLayout>
+</layout>

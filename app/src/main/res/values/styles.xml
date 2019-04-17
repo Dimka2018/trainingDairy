@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeDialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+    </style>
+
+    <style name="spinner_style" >
+        <item name="spn_labelEnable">false</item>
+        <item name="spn_labelPadding">0dp</item>
+        <item name="spn_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="spn_labelTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="spn_labelEllipsize">end</item>
+        <item name="spn_dividerHeight">0dp</item>
+        <item name="spn_dividerPadding">0dp</item>
+        <item name="spn_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
+        <item name="spn_arrowSize">0dp</item>
+        <item name="spn_popupItemAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="spn_popupItemAnimOffset">100</item>
+
+    </style>
+
+
+    <style name="training_text_style" >
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textCursorDrawable">@color/iconColor</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="training_list_text_style" >
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="material_checkbox_style" parent="training_text_style">
+        <item name="cbd_strokeColor">@color/iconColor</item>
+        <item name="cbd_tickColor">@color/backgroundColor</item>
+        <item name="cbd_width">32dp</item>
+        <item name="cbd_height">32dp</item>
+        <item name="cbd_boxSize">20dp</item>
+        <item name="cbd_cornerRadius">2dp</item>
+        <item name="cbd_strokeSize">2dp</item>
+        <item name="cbd_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+
+    <style name="material_radio_style" parent="training_text_style">
+        <item name="rbd_strokeColor">@color/iconColor</item>
+    </style>
+    
+    <style name="no_frame_spinner_style">
+        <item name="spn_labelEnable">false</item>
+        <item name="spn_labelPadding">0dp</item>
+        <item name="spn_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="spn_labelTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="spn_labelEllipsize">end</item>
+        <item name="spn_dividerHeight">0dp</item>
+        <item name="spn_dividerPadding">0dp</item>
+        <item name="spn_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
+        <item name="spn_arrowSize">0dp</item>
+        <item name="spn_popupItemAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="spn_popupItemAnimOffset">100</item>
+    </style>
+
+    <style name = "full_screen_dialog_style" parent="@android:style/Theme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style >
+
+    <style name="edit_text_style">
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColorHint">@color/iconColor</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textCursorDrawable">@color/iconColor</item>
+    </style>
+
+    <style name="timer_style">
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="button_text_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="frame_edit_style">
+        <item name="android:textColor">@color/iconColor</item>
+        <item name="android:textColorHint">@color/iconColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/dialog_background</item>
+        <!--item name="android:textAllCaps">true</item-->
+        <item name="android:textCursorDrawable">@color/iconColor</item>
+    </style>
+
+</resources>

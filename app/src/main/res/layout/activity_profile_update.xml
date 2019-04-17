@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="profile"
+            type="com.fisherman.trainingdiary.entity.Profile"/>
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.profile.ProfileUpdateActivity"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/profile_name_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ic_corner_image"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/new_profile_name"
+            android:layout_width="wrap_content"
+            android:maxWidth="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="@string/profile_name"
+            android:inputType="text"
+            android:textSize="20sp"
+            style="@style/edit_text_style"
+            android:text="@={profile.name}"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/updateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ic_corner_button"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_centerInParent="true"
+            style="@style/button_text_style"
+            android:text="@string/save"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

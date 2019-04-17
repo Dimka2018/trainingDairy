@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fisherman.trainingdiary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".dao.sqlite.SQLiteDaoFactory"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.activity.main.MainActivity_"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.activity.workout.WorkoutActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.workout.WorkoutCreateActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.profile.ProfileActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.profile.ProfileCreateActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.profile.ProfileUpdateActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.workout.WorkoutUpdateActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.training.TrainingActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.exercise.ExerciseActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.exercise.ExerciseCreateActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.activity.exercise.ExerciseUpdateActivity_"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.activity.weight.WeightActivity_"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.activity.weight.WeightCreateActivity_"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.activity.weight.WeightUpdateActivity_"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.activity.statistic.StatisticActivity_"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

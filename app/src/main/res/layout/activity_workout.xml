@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.workout.WorkoutActivity"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/add_exercise_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_triangle_button">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor="@color/iconColor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="@string/new_workout"
+            app:srcCompat="@drawable/ic_triangle_button" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/iconColor"
+            android:text="@string/new_workout"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/swipeMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/add_exercise_button">
+
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+
+</RelativeLayout>

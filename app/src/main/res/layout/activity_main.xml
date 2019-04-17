@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fisherman.trainingdiary.activity.view.ControlledPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".activity.activity.main.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/trainingStartView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/training_start_button"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/start_training"
+            app:srcCompat="@drawable/ic_start_training" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/training_start_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start_training"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/workoutListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/workout_button"
+            android:layout_width="370dp"
+            android:layout_height="205dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/workout"
+            app:srcCompat="@drawable/ic_workout" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/workout_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/workout"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/exerciseListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/exercises_button"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/workout"
+            app:srcCompat="@drawable/ic_dumbbell" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exercises_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/exercises"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/massTypeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/mass_type_button"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_weight"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mass_type_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/weights"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/statisticView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/statistic_button"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_line_chart"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/statistic_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/statistic"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/profileView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/profile_button"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/profile"
+            app:srcCompat="@drawable/ic_profile" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_button"
+            android:layout_centerHorizontal="true"
+            android:text="@string/profile"
+            android:textSize="24sp"
+            style="@style/button_text_style"/>
+
+    </RelativeLayout>
+
+</com.fisherman.trainingdiary.activity.view.ControlledPager>

@@ -1,0 +1,16 @@
+
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â¸ƒ8»Íº¢-
+Lsquid:S2065"0Remove the "transient" modifier from this field.(Ğ€±ä8»Íº¢-
+Lsquid:S2065"0Remove the "transient" modifier from this field.(³æÍš8»Íº¢-
+}squid:S00116"`Rename this field "exercise__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³æÍš8»Íº¢-
+‚squid:S00116"`Rename this field "massType__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¢Âöúÿÿÿÿ8»Íº¢-
+Qsquid:S2065"0Remove the "transient" modifier from this field.(èÀºˆıÿÿÿÿ8»Íº¢-
+asquid:S2886"FSynchronize this method to match the synchronization on "setExercise".(éÒñ|8»Íº¢-
+dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 29.(™Î´R8»Íº¢-
+gsquid:S2886"FSynchronize this method to match the synchronization on "setMassType".(ñé§øÿÿÿÿ8»Íº¢-
+Qsquid:S2065"0Remove the "transient" modifier from this field.(ù¢Âöúÿÿÿÿ8»Íº¢-
+…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 5 times.(¬Ä£ƒşÿÿÿÿ8»Íº¢-
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8»Íº¢-
+^squid:S00107"AConstructor has 9 parameters, which is greater than 7 authorized.(èˆÙ·8»Íº¢-
+dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 29.(™Î´R8»Íº¢-
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™¤¤¶8»Íº¢-
