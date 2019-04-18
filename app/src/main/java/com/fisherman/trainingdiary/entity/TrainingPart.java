@@ -2,12 +2,17 @@ package com.fisherman.trainingdiary.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 
+import java.io.Serializable;
+
 @Entity(createInDb = false)
-public class TrainingPart {
+public class TrainingPart implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id(autoincrement = true)
     private Long id;
@@ -29,20 +34,21 @@ public class TrainingPart {
     @Generated(hash = 770718190)
     private transient TrainingPartDao myDao;
 
-    @Generated(hash = 2086937540)
-    public TrainingPart(Long id, Long dayId, Long exerciseId, int numberSets,
-            int numberReps, Long lastHistoryId) {
+    @Keep
+    public TrainingPart(Long id, Long dayId, Long exerciseId, int numberSets, int numberReps,
+            Long lastHistoryId) {
         this.id = id;
         this.dayId = dayId;
         this.exerciseId = exerciseId;
         this.numberSets = numberSets;
         this.numberReps = numberReps;
         this.lastHistoryId = lastHistoryId;
+        this.exercise__resolvedKey = exerciseId;
+        this.lastHistory__resolvedKey = lastHistoryId;
     }
 
     @Generated(hash = 1176278852)
-    public TrainingPart() {
-    }
+    public TrainingPart() {}
 
     public Long getId() {
         return this.id;
@@ -129,32 +135,25 @@ public class TrainingPart {
     private transient Long exercise__resolvedKey;
 
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 1989414690)
+    @Keep
     public Exercise getExercise() {
-        Long __key = this.exerciseId;
-        if (exercise__resolvedKey == null || !exercise__resolvedKey.equals(__key)) {
-            final DaoSession daoSession = this.daoSession;
+        Long key = this.exerciseId;
+        if (key != null && exercise == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             ExerciseDao targetDao = daoSession.getExerciseDao();
-            Exercise exerciseNew = targetDao.load(__key);
-            synchronized (this) {
-                exercise = exerciseNew;
-                exercise__resolvedKey = __key;
-            }
+            exercise = targetDao.load(key);
         }
         return exercise;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1406024473)
+    @Keep
     public void setExercise(Exercise exercise) {
-        synchronized (this) {
             this.exercise = exercise;
             exerciseId = exercise == null ? null : exercise.getId();
             exercise__resolvedKey = exerciseId;
-        }
     }
 
     /**

@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ProfileContract {
 
-    public static final String EXTRA_KEY = "profile";
-
     public interface View {
 
         void refresh();

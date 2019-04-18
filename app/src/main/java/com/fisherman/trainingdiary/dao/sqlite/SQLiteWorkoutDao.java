@@ -3,8 +3,11 @@ package com.fisherman.trainingdiary.dao.sqlite;
 import com.fisherman.trainingdiary.dao.WorkoutDao;
 import com.fisherman.trainingdiary.entity.DaoSession;
 import com.fisherman.trainingdiary.entity.Day;
+import com.fisherman.trainingdiary.entity.ProfileDao;
 import com.fisherman.trainingdiary.entity.TrainingPart;
 import com.fisherman.trainingdiary.entity.Workout;
+
+import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class SQLiteWorkoutDao implements WorkoutDao {
     public List<Workout> getWorkoutList(Long profileId) {
         return daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
                 .WorkoutDao
-                .Properties.ProfileId.eq(profileId)).build().list();
+                .Properties.ProfileId.eq(profileId)).orderAsc(ProfileDao.Properties.Name).list();
     }
 
     @Override
@@ -60,8 +63,14 @@ public class SQLiteWorkoutDao implements WorkoutDao {
 
     @Override
     public boolean isWorkoutExists(Workout workout) {
-        return daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
-                .WorkoutDao.Properties.Name.eq(workout.getName())).count() > 0;
+        QueryBuilder builder = daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
+                .WorkoutDao.Properties.Name.eq(workout.getName()));
+        if (workout.getId() != null) {
+            builder.where(com.fisherman
+                    .trainingdiary.entity.WorkoutDao.Properties.Id
+                    .notEq(workout.getId()));
+        }
+        return builder.count() > 0;
     }
 
     @Override

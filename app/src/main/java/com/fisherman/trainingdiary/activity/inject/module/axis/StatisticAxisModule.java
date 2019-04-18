@@ -13,6 +13,7 @@ public class StatisticAxisModule {
     Axis provideAxis() {
         Axis axis = new Axis();
         axis.setLineColor(Color.WHITE);
+        axis.setTextColor(Color.WHITE);
         axis.setTextSize(20);
         return axis;
     }

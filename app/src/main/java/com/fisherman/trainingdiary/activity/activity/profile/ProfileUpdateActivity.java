@@ -6,10 +6,10 @@ import android.widget.Toast;
 
 import com.fisherman.trainingdiary.R;
 import com.fisherman.trainingdiary.activity.inject.component.profile.DaggerProfileUpdateComponent;
-import com.fisherman.trainingdiary.contract.profile.ProfileContract;
 import com.fisherman.trainingdiary.contract.profile.ProfileUpdateContract;
 import com.fisherman.trainingdiary.databinding.ActivityProfileUpdateBinding;
 import com.fisherman.trainingdiary.entity.Profile;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -21,6 +21,8 @@ import org.androidannotations.annotations.Extra;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -29,11 +31,11 @@ import javax.inject.Inject;
 @EActivity(R.layout.activity_profile_update)
 public class ProfileUpdateActivity extends AppCompatActivity implements ProfileUpdateContract.View {
 
-    @Extra(ProfileContract.EXTRA_KEY)
+    @Extra(ExtraKey.PROFILE_EXTRA_KEY)
     Profile profile;
 
     @Inject ProfileUpdateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @BindingObject
     ActivityProfileUpdateBinding binding;
@@ -56,6 +58,7 @@ public class ProfileUpdateActivity extends AppCompatActivity implements ProfileU
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

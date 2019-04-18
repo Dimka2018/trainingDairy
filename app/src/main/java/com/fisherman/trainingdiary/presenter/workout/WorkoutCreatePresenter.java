@@ -26,12 +26,12 @@ public class WorkoutCreatePresenter implements WorkoutCreateContract.Presenter {
             workout.setProfileId(daoFactory.getProfileDao().getCurrent().getId());
             daoFactory.getWorkoutDao().saveWorkout(workout);
             view.finish();
-        } catch (Exception e) {
+        } catch (InvalidFieldValueException | ObjectAlreadyExistsException e) {
             view.showErrorMessage(e.getMessage());
         }
     }
 
-    private void validateWorkout(Workout workout) throws Exception {
+    private void validateWorkout(Workout workout) throws InvalidFieldValueException, ObjectAlreadyExistsException {
         Activity activity = (Activity) view;
         if (workout.getName() == null || "".equals(workout.getName().trim())) {
             throw new InvalidFieldValueException(activity.getString(R.string.empty_field));

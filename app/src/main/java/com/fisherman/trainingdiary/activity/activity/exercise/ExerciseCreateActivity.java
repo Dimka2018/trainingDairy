@@ -19,6 +19,8 @@ import org.androidannotations.annotations.EActivity;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -29,7 +31,7 @@ public class ExerciseCreateActivity extends AppCompatActivity implements Exercis
 
     @Inject Exercise exercise;
     @Inject ExerciseCreateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @BindingObject
     ActivityExerciseCreateBinding binding;
@@ -52,6 +54,7 @@ public class ExerciseCreateActivity extends AppCompatActivity implements Exercis
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

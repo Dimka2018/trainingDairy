@@ -20,6 +20,8 @@ import org.androidannotations.annotations.ViewById;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -36,7 +38,7 @@ public class WeightActivity extends AppCompatActivity implements WeightContract.
     @Inject SwipeMenuCreator creator;
     @Inject AutoRefreshableListAdapter adapter;
     @Inject SwipeMenuListView.OnMenuItemClickListener listener;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @AfterInject
     void inject() {
@@ -62,6 +64,7 @@ public class WeightActivity extends AppCompatActivity implements WeightContract.
 
     @Override
     public void showErrorMesage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

@@ -15,9 +15,7 @@ import com.rey.material.widget.Spinner;
 
 public class Converter {
 
-    private Converter() {
-
-    }
+    private Converter() {}
 
     public static String convertLongToString(Long number) {
         return String.valueOf(number);

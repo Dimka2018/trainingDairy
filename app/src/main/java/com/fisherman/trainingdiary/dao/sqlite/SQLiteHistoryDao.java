@@ -9,6 +9,7 @@ import com.fisherman.trainingdiary.entity.ProfileDao;
 import com.fisherman.trainingdiary.entity.Trainee;
 import com.fisherman.trainingdiary.entity.TraineeDao;
 
+import org.greenrobot.greendao.query.Join;
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
@@ -31,8 +32,8 @@ class SQLiteHistoryDao implements com.fisherman.trainingdiary.dao.HistoryDao {
         QueryBuilder<History> builder = historyDao.queryBuilder().where(HistoryDao.Properties
                 .ExerciseId.eq(exercise.getId())).where(HistoryDao.Properties.MassTypeId.eq
                 (massType.getId()));
-        builder.join(Trainee.class, HistoryDao.Properties.TraineeId);
-        builder.join(Profile.class, TraineeDao.Properties.ProfileId).where
+        Join join = builder.join(HistoryDao.Properties.TraineeId, Trainee.class);
+        builder.join(join, TraineeDao.Properties.ProfileId, Profile.class, ProfileDao.Properties.Id).where
                 (ProfileDao.Properties.IsActive.eq(true));
         return builder.list();
     }

@@ -12,14 +12,11 @@
     app:edMenuBackground="@color/iconColor"
     android:id="@+id/slider">
 
-
     <lecho.lib.hellocharts.view.LineChartView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColor" />
-
-
 
     <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
         android:id="@+id/side_menu"
@@ -46,8 +43,8 @@
 
             <com.rey.material.widget.Spinner
                 android:id="@+id/exerciseSpinner"
-                android:layout_width="240dp"
-                android:layout_height="80dp"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
                 app:spn_labelTextSize="40sp"
                 android:layout_centerInParent="true"
                 style="@style/no_frame_spinner_style">
@@ -55,7 +52,6 @@
             </com.rey.material.widget.Spinner>
 
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -70,8 +66,8 @@
 
             <com.rey.material.widget.Spinner
                 android:id="@+id/weightSpinner"
-                android:layout_width="240dp"
-                android:layout_height="80dp"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
                 android:layout_centerInParent="true"
                 style="@style/no_frame_spinner_style"
                 app:spn_labelTextSize="24sp">

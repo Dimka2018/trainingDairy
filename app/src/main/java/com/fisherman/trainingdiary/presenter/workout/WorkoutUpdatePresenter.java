@@ -28,15 +28,15 @@ public class WorkoutUpdatePresenter implements WorkoutUpdateContract.Presenter {
     public void update(Workout workout) {
         try {
             validateWorkout(workout);
-        } catch (Exception e) {
+            daoFactory.getWorkoutDao().deleteWorkout(workout);
+            daoFactory.getWorkoutDao().saveWorkout(workout);
+            view.finish();
+        } catch (InvalidFieldValueException | ObjectAlreadyExistsException e) {
             view.showErrorMessage(e.getMessage());
         }
-        daoFactory.getWorkoutDao().deleteWorkout(workout);
-        daoFactory.getWorkoutDao().saveWorkout(workout);
-        view.finish();
     }
 
-    private void validateWorkout(Workout workout) throws Exception {
+    private void validateWorkout(Workout workout) throws InvalidFieldValueException, ObjectAlreadyExistsException {
         Activity activity = (Activity) view;
         if (workout.getName() == null || "".equals(workout.getName().trim())) {
             throw new InvalidFieldValueException(activity.getString(R.string.empty_field));

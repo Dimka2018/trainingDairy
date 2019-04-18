@@ -20,8 +20,7 @@ public class Exercise implements AdapterApplyable, Serializable {
     private String name;
 
     @Inject
-    public Exercise() {
-    }
+    public Exercise() {}
 
     @Generated(hash = 1333421746)
     public Exercise(Long id, String name) {
@@ -67,7 +66,7 @@ public class Exercise implements AdapterApplyable, Serializable {
 
         Exercise exercise = (Exercise) o;
 
-        return id.equals(exercise.id);
+        return id != null && id.equals(exercise.id);
     }
 
     @Override

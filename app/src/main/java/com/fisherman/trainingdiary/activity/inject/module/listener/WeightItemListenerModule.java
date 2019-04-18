@@ -11,6 +11,7 @@ import com.fisherman.trainingdiary.activity.inject.annotation.ActivityScope;
 import com.fisherman.trainingdiary.activity.view.adapter.autorefresh.AutoRefreshableListAdapter;
 import com.fisherman.trainingdiary.contract.weight.WeightContract;
 import com.fisherman.trainingdiary.entity.MassType;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import java.util.NoSuchElementException;
 
@@ -36,7 +37,7 @@ public class WeightItemListenerModule {
                 final MassType massType = (MassType) adapter.get(position);
                 switch(index){
                     case 0:
-                        WeightUpdateActivity_.intent(activity).extra(WeightContract.EXTRA_KEY, massType)
+                        WeightUpdateActivity_.intent(activity).extra(ExtraKey.WEIGHT_EXTRA_KEY, massType)
                                 .startForResult
                                         (REQUEST_CODE);
                         break;

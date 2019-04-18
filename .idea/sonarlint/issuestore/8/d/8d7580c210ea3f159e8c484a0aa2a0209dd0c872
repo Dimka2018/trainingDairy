@@ -1,7 +1,6 @@
 
-Jsquid:S2065"0Remove the "transient" modifier from this field.(ŸÖ¼­ÿÿÿÿÿ
-]squid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 22.(™Î´R
-dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯
-Nsquid:S2168"9Remove this dangerous instance of double-checked locking.(Û­¨
-~squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒşÿÿÿÿ
-Esquid:S2065"0Remove the "transient" modifier from this field.(Ğ€±ä
+dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 27.(™Î´R8“Ó‹£-
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8“Ó‹£-
+Usquid:S2168"9Remove this dangerous instance of double-checked locking.(Û­¨8“Ó‹£-
+…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒşÿÿÿÿ8“Ó‹£-
+Msquid:S1948"2Make "trainingPartList" transient or serializable.(ä÷8¬×Ó‹£-

@@ -6,11 +6,16 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.ToMany;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 @Entity(createInDb = false)
-public class Day {
+public class Day implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id(autoincrement = true)
     private Long id;
@@ -25,6 +30,7 @@ public class Day {
     @Generated(hash = 312167767)
     private transient DayDao myDao;
 
+    @Inject
     public Day() {
         trainingPartList = new ArrayList<>();
     }
@@ -117,21 +123,6 @@ public class Day {
 
     public void setTrainingPartList(List<TrainingPart> trainingPartList) {
         this.trainingPartList = trainingPartList;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Day day = (Day) o;
-
-        return id.equals(day.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 
     /** called by internal mechanisms, do not call yourself. */

@@ -19,6 +19,8 @@ import org.androidannotations.annotations.EActivity;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -29,7 +31,7 @@ public class WeightCreateActivity extends AppCompatActivity implements WeightCre
 
     @Inject MassType massType;
     @Inject WeightCreateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @BindingObject
     ActivityWeightCreateBinding binding;
@@ -52,6 +54,7 @@ public class WeightCreateActivity extends AppCompatActivity implements WeightCre
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

@@ -23,6 +23,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/fisherman/trainingdiary/activity/view/TrainingDayView_.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/fisherman/trainingdiary/activity/view/view_holder/ExerciseView_.java">
           <value>
             <set />
@@ -1109,6 +1114,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/fisherman/trainingdiary/presenter/workout/WorkoutUpdatePresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/fisherman/trainingdiary/resource/ExtraKey.java">
           <value>
             <set />
           </value>

@@ -20,6 +20,8 @@ import org.androidannotations.annotations.ViewById;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * @author Dmitry Plotnikov
  */
@@ -35,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     @Inject SwipeMenuCreator creator;
     @Inject AutoRefreshableListAdapter adapter;
     @Inject SwipeMenuListView.OnMenuItemClickListener listener;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
 
     @AfterInject
@@ -63,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

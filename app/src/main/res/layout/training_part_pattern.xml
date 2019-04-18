@@ -34,7 +34,6 @@
             android:layout_marginTop="40dp"
             app:trainingPart="@{trainingPart}"/>
 
-
         <EditText
             android:id="@+id/numberSets"
             android:layout_width="match_parent"

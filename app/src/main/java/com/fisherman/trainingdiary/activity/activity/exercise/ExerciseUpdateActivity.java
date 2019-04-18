@@ -6,10 +6,10 @@ import android.widget.Toast;
 
 import com.fisherman.trainingdiary.R;
 import com.fisherman.trainingdiary.activity.inject.component.exercise.DaggerExerciseUpdateComponent;
-import com.fisherman.trainingdiary.contract.exercise.ExerciseContract;
 import com.fisherman.trainingdiary.contract.exercise.ExerciseUpdateContract;
 import com.fisherman.trainingdiary.databinding.ActivityExerciseUpdateBinding;
 import com.fisherman.trainingdiary.entity.Exercise;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -21,6 +21,8 @@ import org.androidannotations.annotations.Extra;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -29,11 +31,11 @@ import javax.inject.Inject;
 @EActivity(R.layout.activity_exercise_update)
 public class ExerciseUpdateActivity extends AppCompatActivity implements ExerciseUpdateContract.View {
 
-    @Extra(ExerciseContract.EXTRA_KEY)
+    @Extra(ExtraKey.EXERCISE_EXTRA_KEY)
     Exercise exercise;
 
     @Inject ExerciseUpdateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @BindingObject
     ActivityExerciseUpdateBinding binding;
@@ -56,6 +58,7 @@ public class ExerciseUpdateActivity extends AppCompatActivity implements Exercis
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

@@ -172,6 +172,14 @@ public class Workout implements AdapterApplyable, Serializable{
         this.dayList = dayList;
     }
 
+    public void loadFull() {
+        for (Day day : getDayList()) {
+            for (TrainingPart part : day.getTrainingPartList()) {
+                part.getExercise();
+            }
+        }
+    }
+
     /** called by internal mechanisms, do not call yourself. */
     @Generated(hash = 1398188052)
     public void __setDaoSession(DaoSession daoSession) {

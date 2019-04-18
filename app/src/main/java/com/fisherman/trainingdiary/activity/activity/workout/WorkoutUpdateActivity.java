@@ -10,11 +10,11 @@ import com.fisherman.trainingdiary.R;
 import com.fisherman.trainingdiary.activity.inject.component.workout.DaggerWorkoutUpdateComponent;
 import com.fisherman.trainingdiary.activity.view.TrainingDayView;
 import com.fisherman.trainingdiary.activity.view.TrainingDayView_;
-import com.fisherman.trainingdiary.contract.workout.WorkoutContract;
 import com.fisherman.trainingdiary.contract.workout.WorkoutUpdateContract;
 import com.fisherman.trainingdiary.databinding.ActivityWorkoutUpdateBinding;
 import com.fisherman.trainingdiary.entity.Day;
 import com.fisherman.trainingdiary.entity.Workout;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -28,13 +28,14 @@ import org.androidannotations.annotations.ViewById;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
+
+import dagger.Lazy;
 
 @SuppressLint("Registered")
 @DataBound
 @EActivity( R.layout.activity_workout_update)
 public class WorkoutUpdateActivity extends AppCompatActivity implements WorkoutUpdateContract.View {
-
-    private Workout workout;
 
     @ViewById
     ViewGroup workoutContent;
@@ -42,12 +43,13 @@ public class WorkoutUpdateActivity extends AppCompatActivity implements WorkoutU
     @BindingObject
     ActivityWorkoutUpdateBinding binding;
 
-    @Extra(WorkoutContract.EXTRA_KEY)
-    Long workoutId;
+    @Extra(ExtraKey.WORKOUT_EXTRA_KEY)
+    Workout workout;
 
     @Inject List<TrainingDayView> trainingDayViews;
     @Inject WorkoutUpdateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
+    @Inject Provider<Day> dayProvider;
 
     @AfterInject
     void inject() {
@@ -56,11 +58,9 @@ public class WorkoutUpdateActivity extends AppCompatActivity implements WorkoutU
 
     @AfterViews
     void setupPage() {
-        workout = presenter.getWorkoutById(workoutId);
         binding.setWorkout(workout);
         setupWorkout();
     }
-
 
     private void setupWorkout() {
         List<Day> dayListForWorkout = workout.getDayList();
@@ -87,11 +87,11 @@ public class WorkoutUpdateActivity extends AppCompatActivity implements WorkoutU
 
     @Click(R.id.add_day_button)
     void addWorkoutDay() {
-        final Day day = new Day();
+        final Day day = dayProvider.get();
         List<Day> dayList = workout.getDayList();
         dayList.add(day);
         final TrainingDayView dayView = TrainingDayView_.build(this, day, dayList
-                .size() + 1);
+                .size());
         workoutContent.addView(dayView);
         trainingDayViews.add(dayView);
         dayView.setDeleteListener(new View.OnClickListener() {
@@ -114,6 +114,7 @@ public class WorkoutUpdateActivity extends AppCompatActivity implements WorkoutU
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

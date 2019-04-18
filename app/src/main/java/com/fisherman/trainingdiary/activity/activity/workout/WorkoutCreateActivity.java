@@ -26,6 +26,9 @@ import org.androidannotations.annotations.ViewById;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
+
+import dagger.Lazy;
 
 @SuppressLint("Registered")
 @DataBound
@@ -41,7 +44,8 @@ public class WorkoutCreateActivity extends AppCompatActivity implements WorkoutC
     @Inject Workout workout;
     @Inject List<TrainingDayView> dayViews;
     @Inject WorkoutCreateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
+    @Inject Provider<Day> dayProvider;
 
     @AfterInject
     void inject() {
@@ -55,7 +59,7 @@ public class WorkoutCreateActivity extends AppCompatActivity implements WorkoutC
 
     @Click(R.id.add_day_button)
     void addWorkoutDay() {
-        final Day day = new Day();
+        final Day day = dayProvider.get();
         final TrainingDayView dayView = TrainingDayView_.build(this, day,
                 workout.getDayList().size() + 1);
         dayViews.add(dayView);
@@ -81,6 +85,7 @@ public class WorkoutCreateActivity extends AppCompatActivity implements WorkoutC
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

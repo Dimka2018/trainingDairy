@@ -3,6 +3,8 @@ package com.fisherman.trainingdiary.dao.sqlite;
 import com.fisherman.trainingdiary.dao.ProfileDao;
 import com.fisherman.trainingdiary.entity.Profile;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +25,8 @@ public class SQLiteProfileDao implements ProfileDao {
 
     @Override
     public List<Profile> getAllProfiles() {
-        return profileDao.loadAll();
+        return profileDao.queryBuilder().orderAsc(com.fisherman.trainingdiary.entity.ProfileDao
+                .Properties.Name).list();
     }
 
     @Override
@@ -34,8 +37,13 @@ public class SQLiteProfileDao implements ProfileDao {
 
     @Override
     public boolean isProfileExists(Profile profile) {
-        return profileDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ProfileDao
-                .Properties.Name.eq(profile.getName())).count() > 0;
+        QueryBuilder<Profile> builder = profileDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ProfileDao
+                .Properties.Name.eq(profile.getName()));
+        if (profile.getId() != null) {
+            builder.where(com.fisherman.trainingdiary.entity.ProfileDao.Properties.Id.notEq
+                    (profile.getId()));
+        }
+        return builder.count() > 0;
     }
 
     @Override

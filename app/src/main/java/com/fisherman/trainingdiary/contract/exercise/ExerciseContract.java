@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ExerciseContract {
 
-    public static final String EXTRA_KEY = "exercise";
-
     public interface View {
 
         void refresh();

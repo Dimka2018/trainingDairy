@@ -1,16 +1,9 @@
 
-Lsquid:S2065"0Remove the "transient" modifier from this field.(³æÍš8Á¤ˆç-
-…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 5 times.(¬Ä£ƒşÿÿÿÿ8Á¤ˆç-
-dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 26.(™Î´R8Á¤ˆç-
-Ksquid:S2065"0Remove the "transient" modifier from this field.(¢‘ÕC8Á¤ˆç-
-lsquid:S1206"PThis class overrides "hashCode()" and should therefore also override "equals()".(ğÜşŠ8—°î¼¡-
-asquid:S2886"FSynchronize this method to match the synchronization on "setExercise".(éÒñ|8Á¤ˆç-
-squid:S00116"cRename this field "lastHistory__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‘ÕC8Á¤ˆç-
-nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â¸ƒ8Á¤ˆç-
-}squid:S00116"`Rename this field "exercise__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³æÍš8Á¤ˆç-
-jsquid:S2886"ISynchronize this method to match the synchronization on "setLastHistory".(½Æ‹Ñøÿÿÿÿ8Á¤ˆç-
-ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ‹‡ùÿÿÿÿ8Á¤ˆç-
-Lsquid:S2065"0Remove the "transient" modifier from this field.(Ğ€±ä8Á¤ˆç-
-ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8Á¤ˆç-
-Qsquid:S2065"0Remove the "transient" modifier from this field.(ëµè“ùÿÿÿÿ8Á¤ˆç-
-dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 26.(™Î´R8Á¤ˆç-
+jsquid:S2886"ISynchronize this method to match the synchronization on "setLastHistory".(½Æ‹Ñøÿÿÿÿ8…¿£-
+…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 5 times.(¬Ä£ƒşÿÿÿÿ8…¿£-
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8›Ï£-
+ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ‹‡ùÿÿÿÿ8…¿£-
+dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 31.(™Î´R8…¿£-
+lsquid:S1206"PThis class overrides "hashCode()" and should therefore also override "equals()".(ğÜşŠ8›Ï£-
+squid:S00116"cRename this field "lastHistory__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‘ÕC8…¿£-
+}squid:S00116"`Rename this field "exercise__resolvedKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³æÍš8…¿£-

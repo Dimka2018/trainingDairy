@@ -28,6 +28,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 @SuppressLint("Registered")
 @EActivity(R.layout.activity_training)
 public class TrainingActivity extends AppCompatActivity implements TrainingContract.View {
@@ -41,7 +43,7 @@ public class TrainingActivity extends AppCompatActivity implements TrainingContr
     @ViewById TimerView timer;
 
     @Inject TrainingContract.Presenter presenter;
-    @Inject TrainingListDialog dialog;
+    @Inject Lazy<TrainingListDialog> lazyDialog;
     @Inject List<TrainingView> views;
     @Inject List<History> historyList;
 
@@ -73,6 +75,7 @@ public class TrainingActivity extends AppCompatActivity implements TrainingContr
 
     @Click(R.id.saveButton)
     void showFinishDialog() {
+        TrainingListDialog dialog = lazyDialog.get();
         dialog.setHistoryList(historyList);
         dialog.setOnSuccessClickListener(new View.OnClickListener() {
             @Override

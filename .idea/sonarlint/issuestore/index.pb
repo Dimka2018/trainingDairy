@@ -367,3 +367,9 @@ iapp/src/main/java/com/fisherman/trainingdiary/activity/inject/component/statist
 iapp/src/main/java/com/fisherman/trainingdiary/activity/inject/module/adapter/WeightListAdapterModule.java,d\c\dc51fb9a84d8026e38e590277683cfffb3d2c9e1
 ›
 kapp/src/main/java/com/fisherman/trainingdiary/activity/inject/module/adapter/ExerciseListAdapterModule.java,e\2\e23b9faf39324cf528a1279d11361abeac58e240
+r
+Bapp/src/test/java/com/fisherman/trainingdiary/ExampleUnitTest.java,0\5\050e8b5dcaf0a2e4fafa39edbf3f3a18afb7ecf7
+†
+Vapp/src/main/java/com/fisherman/trainingdiary/activity/animation/AnimationManager.java,8\6\861a3acb87f5cd21665c2643be5c50d694abf227
+t
+Dapp/src/main/java/com/fisherman/trainingdiary/resource/ExtraKey.java,3\f\3f7f77b01b2b30fbfa702909704e45196b76ca16

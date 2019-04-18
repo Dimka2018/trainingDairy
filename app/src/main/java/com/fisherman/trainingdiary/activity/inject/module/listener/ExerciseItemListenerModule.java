@@ -11,6 +11,7 @@ import com.fisherman.trainingdiary.activity.inject.annotation.ActivityScope;
 import com.fisherman.trainingdiary.activity.view.adapter.autorefresh.AutoRefreshableListAdapter;
 import com.fisherman.trainingdiary.contract.exercise.ExerciseContract;
 import com.fisherman.trainingdiary.entity.Exercise;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import java.util.NoSuchElementException;
 
@@ -36,7 +37,7 @@ public class ExerciseItemListenerModule {
                 final Exercise exercise = (Exercise) adapter.get(position);
                 switch (index){
                     case 0:
-                        ExerciseUpdateActivity_.intent(activity).extra(ExerciseContract.EXTRA_KEY,
+                        ExerciseUpdateActivity_.intent(activity).extra(ExtraKey.EXERCISE_EXTRA_KEY,
                                 exercise)
                                 .startForResult(REQUEST_CODE);
                         break;

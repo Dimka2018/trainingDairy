@@ -11,6 +11,7 @@ import com.fisherman.trainingdiary.activity.inject.annotation.ActivityScope;
 import com.fisherman.trainingdiary.activity.view.adapter.autorefresh.AutoRefreshableListAdapter;
 import com.fisherman.trainingdiary.contract.profile.ProfileContract;
 import com.fisherman.trainingdiary.entity.Profile;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import java.util.NoSuchElementException;
 
@@ -39,7 +40,7 @@ public class ProfileItemListenerModule {
                         presenter.activateProfile(profile);
                         break;
                     case 1:
-                        ProfileUpdateActivity_.intent(activity).extra(ProfileContract.EXTRA_KEY, profile)
+                        ProfileUpdateActivity_.intent(activity).extra(ExtraKey.PROFILE_EXTRA_KEY, profile)
                                 .startForResult
                                         (REQUEST_CODE);
                         break;

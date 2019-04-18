@@ -6,10 +6,10 @@ import android.widget.Toast;
 
 import com.fisherman.trainingdiary.R;
 import com.fisherman.trainingdiary.activity.inject.component.weight.DaggerWeightUpdateComponent;
-import com.fisherman.trainingdiary.contract.weight.WeightContract;
 import com.fisherman.trainingdiary.contract.weight.WeightUpdateContract;
 import com.fisherman.trainingdiary.databinding.ActivityWeightUpdateBinding;
 import com.fisherman.trainingdiary.entity.MassType;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -21,6 +21,8 @@ import org.androidannotations.annotations.Extra;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -30,9 +32,9 @@ import javax.inject.Inject;
 public class WeightUpdateActivity extends AppCompatActivity implements WeightUpdateContract.View {
 
     @Inject WeightUpdateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
-    @Extra(WeightContract.EXTRA_KEY)
+    @Extra(ExtraKey.WEIGHT_EXTRA_KEY)
     MassType massType;
 
     @BindingObject
@@ -56,6 +58,7 @@ public class WeightUpdateActivity extends AppCompatActivity implements WeightUpd
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

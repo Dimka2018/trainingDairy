@@ -11,6 +11,7 @@ import com.fisherman.trainingdiary.activity.inject.annotation.ActivityScope;
 import com.fisherman.trainingdiary.activity.view.adapter.autorefresh.AutoRefreshableListAdapter;
 import com.fisherman.trainingdiary.contract.workout.WorkoutContract;
 import com.fisherman.trainingdiary.entity.Workout;
+import com.fisherman.trainingdiary.resource.ExtraKey;
 
 import java.util.NoSuchElementException;
 
@@ -39,8 +40,9 @@ public class WorkoutItemListenerModule {
                         presenter.activateWorkout(workout);
                         break;
                     case 1:
-                        WorkoutUpdateActivity_.intent(activity).extra(WorkoutContract.EXTRA_KEY,
-                                workout.getId()).startForResult(REQUEST_CODE);
+                        workout.loadFull();
+                        WorkoutUpdateActivity_.intent(activity).extra(ExtraKey.WORKOUT_EXTRA_KEY,
+                                workout).startForResult(REQUEST_CODE);
                         break;
                     case 2:
                         dialog.setPositiveClickListener(new View.OnClickListener() {

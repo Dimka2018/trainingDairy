@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface WeightContract {
 
-    public static final String EXTRA_KEY = "mass";
-
     interface View {
 
         void refresh();

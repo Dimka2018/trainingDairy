@@ -1,6 +1,5 @@
 
-Csquid:S1948")Make "dayList" transient or serializable.(âðû†ÿÿÿÿÿ
-]squid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 35.(™Î´R
-Nsquid:S2168"9Remove this dangerous instance of double-checked locking.(Û­¨
-dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯
-~squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒþÿÿÿÿ
+…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒþÿÿÿÿ8¨ä™Ž£-
+Usquid:S2168"9Remove this dangerous instance of double-checked locking.(Û­¨8¨ä™Ž£-
+dsquid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 35.(™Î´R8¨ä™Ž£-
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8¨ä™Ž£-

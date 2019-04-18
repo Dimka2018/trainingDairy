@@ -29,6 +29,8 @@ import org.androidannotations.annotations.ViewById;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 @SuppressLint("ViewConstructor")
 @DataBound
 @EViewGroup(R.layout.training_part_pattern)
@@ -46,7 +48,7 @@ public class TrainingPartView extends FrameLayout implements TrainingPartContrac
 
     @Inject EntitySource source;
     @Inject Spinner.OnItemSelectedListener newElemListener;
-    @Inject Toast toast;
+    @Inject Lazy<Toast> lazyToast;
 
     @BindingObject
     TrainingPartPatternBinding binding;
@@ -115,6 +117,7 @@ public class TrainingPartView extends FrameLayout implements TrainingPartContrac
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

@@ -19,6 +19,8 @@ import org.androidannotations.annotations.EActivity;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -29,7 +31,8 @@ public class ProfileCreateActivity extends AppCompatActivity implements ProfileC
 
     @Inject Profile profile;
     @Inject ProfileCreateContract.Presenter presenter;
-    @Inject Toast toast;
+    @Inject
+    Lazy<Toast> lazyToast;
 
     @BindingObject
     ActivityProfileCreateBinding binding;
@@ -52,6 +55,7 @@ public class ProfileCreateActivity extends AppCompatActivity implements ProfileC
 
     @Override
     public void showErrorMessage(String message) {
+        Toast toast = lazyToast.get();
         toast.setText(message);
         toast.show();
     }

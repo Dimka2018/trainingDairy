@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface WorkoutContract {
 
-    public static final String EXTRA_KEY = "id";
-
     public interface View {
 
         void refresh();

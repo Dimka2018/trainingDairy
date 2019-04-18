@@ -3,6 +3,8 @@ package com.fisherman.trainingdiary.dao.sqlite;
 import com.fisherman.trainingdiary.dao.ExerciseDao;
 import com.fisherman.trainingdiary.entity.Exercise;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +38,13 @@ public class SQLiteExerciseDao implements ExerciseDao {
 
     @Override
     public boolean isExerciseExists(Exercise exercise) {
-        return exerciseDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ExerciseDao
-                .Properties.Name.eq(exercise.getName())).count() > 0;
+        QueryBuilder<Exercise> builder = exerciseDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ExerciseDao
+                .Properties.Name.eq(exercise.getName()));
+        if (exercise.getId() != null) {
+            builder.where(com.fisherman.trainingdiary.entity.ExerciseDao.Properties.Id.notEq
+                    (exercise.getId()));
+        }
+        return builder.count() > 0;
     }
 
     @Override

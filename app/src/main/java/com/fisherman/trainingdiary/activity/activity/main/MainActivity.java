@@ -25,6 +25,8 @@ import org.androidannotations.annotations.ViewById;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 /**
  * author Dmitry Plotnikov
  */
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Inject PageInjectedAdapter adapter;
     @Inject MainContract.Presenter presenter;
-    @Inject Dialog dialog;
+    @Inject Lazy<Dialog> lazyDialog;
 
     @AfterInject
     void inject() {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             if (presenter.hasCurrentUserTraining()) {
                 TrainingActivity_.intent(this).start();
             } else {
+                Dialog dialog = lazyDialog.get();
                 dialog.show(getFragmentManager(), DIALOG_TAG);
             }
     }
