@@ -4,10 +4,15 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToOne;
 
 import java.io.Serializable;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class History implements Serializable {
 
@@ -36,8 +41,7 @@ public class History implements Serializable {
     @Generated(hash = 1462128466)
     private transient HistoryDao myDao;
 
-    public History() {
-    }
+    public History() {}
 
     @Generated(hash = 155104304)
     public History(Long id, boolean isCompleted, boolean isMaxWeight, long weight,
@@ -54,68 +58,41 @@ public class History implements Serializable {
         this.exerciseId = exerciseId;
     }
 
-    @Generated(hash = 979490715)
-    private transient Long massType__resolvedKey;
-
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 1124451856)
     public MassType getMassType() {
-        Long __key = this.massTypeId;
-        if (massType__resolvedKey == null || !massType__resolvedKey.equals(__key)) {
-            final DaoSession daoSession = this.daoSession;
+        Long key = this.massTypeId;
+        if (key != null && massType == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
-            MassTypeDao targetDao = daoSession.getMassTypeDao();
-            MassType massTypeNew = targetDao.load(__key);
-            synchronized (this) {
-                massType = massTypeNew;
-                massType__resolvedKey = __key;
-            }
+            massType = daoSession.getMassTypeDao().load(key);
         }
         return massType;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 2034585730)
     public void setMassType(MassType massType) {
-        synchronized (this) {
-            this.massType = massType;
-            massTypeId = massType == null ? null : massType.getId();
-            massType__resolvedKey = massTypeId;
-        }
+        this.massType = massType;
+        massTypeId = massType == null ? null : massType.getId();
     }
 
-    @Generated(hash = 1987934211)
-    private transient Long exercise__resolvedKey;
-
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 1989414690)
     public Exercise getExercise() {
-        Long __key = this.exerciseId;
-        if (exercise__resolvedKey == null || !exercise__resolvedKey.equals(__key)) {
-            final DaoSession daoSession = this.daoSession;
+        Long key = this.exerciseId;
+        if (key != null && exercise == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             ExerciseDao targetDao = daoSession.getExerciseDao();
-            Exercise exerciseNew = targetDao.load(__key);
-            synchronized (this) {
-                exercise = exerciseNew;
-                exercise__resolvedKey = __key;
-            }
+            exercise = targetDao.load(key);
         }
         return exercise;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1406024473)
     public void setExercise(Exercise exercise) {
-        synchronized (this) {
-            this.exercise = exercise;
-            exerciseId = exercise == null ? null : exercise.getId();
-            exercise__resolvedKey = exerciseId;
-        }
+        this.exercise = exercise;
+        exerciseId = exercise == null ? null : exercise.getId();
     }
 
     /**

@@ -6,6 +6,7 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToMany;
 import org.greenrobot.greendao.annotation.ToOne;
 
@@ -14,9 +15,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class Profile implements AdapterApplyable, Serializable {
 
@@ -55,10 +57,6 @@ public class Profile implements AdapterApplyable, Serializable {
         this.currentDayId = currentDayId;
     }
 
-    @Generated(hash = 665367881)
-    private transient Long currentDay__resolvedKey;
-
-
     @Override
     public boolean isActive(){
         return isActive;
@@ -70,59 +68,41 @@ public class Profile implements AdapterApplyable, Serializable {
     }
 
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 1269261075)
     public Day getCurrentDay() {
-        Long __key = this.currentDayId;
-        if (currentDay__resolvedKey == null || !currentDay__resolvedKey.equals(__key)) {
-            final DaoSession daoSession = this.daoSession;
+        Long key = this.currentDayId;
+        if (key != null && currentDay == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             DayDao targetDao = daoSession.getDayDao();
-            Day currentDayNew = targetDao.load(__key);
-            synchronized (this) {
-                currentDay = currentDayNew;
-                currentDay__resolvedKey = __key;
-            }
+            currentDay = targetDao.load(key);
         }
         return currentDay;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1684847422)
     public void setCurrentDay(Day currentDay) {
-        synchronized (this) {
             this.currentDay = currentDay;
             currentDayId = currentDay == null ? null : currentDay.getId();
-            currentDay__resolvedKey = currentDayId;
-        }
     }
 
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 730217023)
     public List<Workout> getWorkoutList() {
         if (workoutList == null) {
-            final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             WorkoutDao targetDao = daoSession.getWorkoutDao();
-            List<Workout> workoutListNew = targetDao._queryProfile_WorkoutList(id);
-            synchronized (this) {
-                if (workoutList == null) {
-                    workoutList = workoutListNew;
-                }
-            }
+            workoutList = targetDao._queryProfile_WorkoutList(id);
         }
         return workoutList;
     }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 1620683702)
-    public synchronized void resetWorkoutList() {
+    public void resetWorkoutList() {
         workoutList = null;
     }
 

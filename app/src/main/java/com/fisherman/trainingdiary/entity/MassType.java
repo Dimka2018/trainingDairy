@@ -10,6 +10,9 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 @Entity(createInDb = false)
 public class MassType implements Serializable, AdapterApplyable {
 
@@ -54,20 +57,5 @@ public class MassType implements Serializable, AdapterApplyable {
     @Override
     public String toString() {
         return name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        MassType massType = (MassType) o;
-
-        return id.equals(massType.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }

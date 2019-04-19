@@ -3,13 +3,17 @@ package com.fisherman.trainingdiary.entity;
 import com.fisherman.trainingdiary.activity.view.adapter.AdapterApplyable;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 
 import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class Exercise implements AdapterApplyable, Serializable {
 
@@ -22,7 +26,6 @@ public class Exercise implements AdapterApplyable, Serializable {
     @Inject
     public Exercise() {}
 
-    @Generated(hash = 1333421746)
     public Exercise(Long id, String name) {
         this.id = id;
         this.name = name;
@@ -57,20 +60,5 @@ public class Exercise implements AdapterApplyable, Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Exercise exercise = (Exercise) o;
-
-        return id != null && id.equals(exercise.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }

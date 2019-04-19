@@ -4,6 +4,7 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.io.Serializable;
@@ -12,6 +13,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class Day implements Serializable {
 
@@ -35,7 +40,6 @@ public class Day implements Serializable {
         trainingPartList = new ArrayList<>();
     }
 
-    @Generated(hash = 857409854)
     public Day(Long id, Long workoutId) {
         this.id = id;
         this.workoutId = workoutId;
@@ -45,27 +49,19 @@ public class Day implements Serializable {
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 1726364112)
     public List<TrainingPart> getTrainingPartList() {
         if (trainingPartList == null) {
-            final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             TrainingPartDao targetDao = daoSession.getTrainingPartDao();
-            List<TrainingPart> trainingPartListNew = targetDao._queryDay_TrainingPartList(id);
-            synchronized (this) {
-                if (trainingPartList == null) {
-                    trainingPartList = trainingPartListNew;
-                }
-            }
+            trainingPartList = targetDao._queryDay_TrainingPartList(id);
         }
         return trainingPartList;
     }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 1825195332)
-    public synchronized void resetTrainingPartList() {
+    public void resetTrainingPartList() {
         trainingPartList = null;
     }
 

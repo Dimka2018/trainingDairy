@@ -1,7 +1,5 @@
 
-Jsquid:S2065"0Remove the "transient" modifier from this field.(Á»É‘úÿÿÿÿ
-Nsquid:S2168"9Remove this dangerous instance of double-checked locking.(Û­¨
-~squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒþÿÿÿÿ
-dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯
-]squid:HiddenFieldCheck">Rename "daoSession" which hides the field declared at line 24.(™Î´R
-Esquid:S2065"0Remove the "transient" modifier from this field.(Ð€±ä
+Lsquid:S2065"0Remove the "transient" modifier from this field.(Ð€±ä8áÛ–µ£-
+Qsquid:S2065"0Remove the "transient" modifier from this field.(Á»É‘úÿÿÿÿ8áÛ–µ£-
+…squid:S1192"dDefine a constant instead of duplicating this literal "Entity is detached from DAO context" 4 times.(¬Ä£ƒþÿÿÿÿ8áÛ–µ£-
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜áš¯8áÛ–µ£-

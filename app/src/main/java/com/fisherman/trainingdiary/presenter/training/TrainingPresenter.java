@@ -26,14 +26,15 @@ public class TrainingPresenter implements TrainingContract.Presenter {
 
     private void saveTraining(List<TrainingPart> trainingPartList, List<History> historyList) {
         Trainee trainee = new Trainee();
-        trainee.setProfileId(getCurrentProfile().getId());
+        Profile currentProfile = getCurrentProfile();
+        trainee.setProfileId(currentProfile.getId());
         trainee = daoFactory.getTraineeDao().save(trainee);
         for (int i = 0; i < trainingPartList.size(); i++)  {
             History history = historyList.get(i);
             history.setTraineeId(trainee.getId());
             history = saveHistory(history);
             TrainingPart trainingPart = trainingPartList.get(i);
-            trainingPart.setLastHistoryId(history.getId());
+            trainingPart.setLastHistory(history);
             updateTrainingPart(trainingPart);
         }
     }

@@ -6,6 +6,7 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class Workout implements AdapterApplyable, Serializable{
 
@@ -54,7 +56,6 @@ public class Workout implements AdapterApplyable, Serializable{
         this.isActive = isActive;
     }
 
-
     @Override
     public boolean isActive() {
         return isActive;
@@ -69,27 +70,19 @@ public class Workout implements AdapterApplyable, Serializable{
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 1805835665)
     public List<Day> getDayList() {
         if (dayList == null) {
-            final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             DayDao targetDao = daoSession.getDayDao();
-            List<Day> dayListNew = targetDao._queryWorkout_DayList(id);
-            synchronized (this) {
-                if (dayList == null) {
-                    dayList = dayListNew;
-                }
-            }
+            dayList = targetDao._queryWorkout_DayList(id);
         }
         return dayList;
     }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 1010399236)
-    public synchronized void resetDayList() {
+    public void resetDayList() {
         dayList = null;
     }
 

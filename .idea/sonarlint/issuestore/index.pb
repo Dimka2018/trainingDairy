@@ -373,3 +373,7 @@ Bapp/src/test/java/com/fisherman/trainingdiary/ExampleUnitTest.java,0\5\050e8b5
 Vapp/src/main/java/com/fisherman/trainingdiary/activity/animation/AnimationManager.java,8\6\861a3acb87f5cd21665c2643be5c50d694abf227
 t
 Dapp/src/main/java/com/fisherman/trainingdiary/resource/ExtraKey.java,3\f\3f7f77b01b2b30fbfa702909704e45196b76ca16
+u
+Eapp/src/main/java/com/fisherman/trainingdiary/entity/TrainingDTO.java,6\a\6a077dfd4bd7e73aa37966308117c31e6a8b8228
+z
+Japp/src/main/java/com/fisherman/trainingdiary/dao/sqlite/SQLiteDayDao.java,4\9\491fb99b9cc45d620aa0a6ea50a9f616343c4e63

@@ -4,13 +4,16 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.ToMany;
 
+import java.util.LinkedList;
 import java.util.List;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class Trainee {
 
@@ -28,6 +31,7 @@ public class Trainee {
     private transient TraineeDao myDao;
 
     public Trainee() {
+        historyList = new LinkedList<>();
     }
 
     @Generated(hash = 983819358)
@@ -40,27 +44,19 @@ public class Trainee {
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 1785213996)
     public List<History> getHistoryList() {
         if (historyList == null) {
-            final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             HistoryDao targetDao = daoSession.getHistoryDao();
-            List<History> historyListNew = targetDao._queryTrainee_HistoryList(id);
-            synchronized (this) {
-                if (historyList == null) {
-                    historyList = historyListNew;
-                }
-            }
+            historyList = targetDao._queryTrainee_HistoryList(id);
         }
         return historyList;
     }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 466944887)
-    public synchronized void resetHistoryList() {
+    public void resetHistoryList() {
         historyList = null;
     }
 

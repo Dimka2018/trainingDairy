@@ -20,7 +20,7 @@ public class SQLiteProfileDao implements ProfileDao {
     public Profile getCurrent() {
         return profileDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ProfileDao
                 .Properties
-                .IsActive.eq(ACTIVE_INDICATOR)).build().unique();
+                .IsActive.eq(ACTIVE_INDICATOR)).unique();
     }
 
     @Override

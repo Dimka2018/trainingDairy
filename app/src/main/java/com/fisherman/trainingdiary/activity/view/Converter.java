@@ -54,7 +54,7 @@ public class Converter {
         spinner.setOnElementSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(Spinner parent, View view, int position, long id) {
-                trainingPart.setExerciseId(((Exercise)parent.getSelectedItem()).getId());
+                trainingPart.setExercise((Exercise)parent.getSelectedItem());
             }
         });
     }

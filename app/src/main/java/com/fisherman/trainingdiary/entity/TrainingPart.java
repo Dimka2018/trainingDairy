@@ -9,6 +9,10 @@ import org.greenrobot.greendao.DaoException;
 
 import java.io.Serializable;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
+@Keep
 @Entity(createInDb = false)
 public class TrainingPart implements Serializable {
 
@@ -34,7 +38,7 @@ public class TrainingPart implements Serializable {
     @Generated(hash = 770718190)
     private transient TrainingPartDao myDao;
 
-    @Keep
+
     public TrainingPart(Long id, Long dayId, Long exerciseId, int numberSets, int numberReps,
             Long lastHistoryId) {
         this.id = id;
@@ -43,8 +47,6 @@ public class TrainingPart implements Serializable {
         this.numberSets = numberSets;
         this.numberReps = numberReps;
         this.lastHistoryId = lastHistoryId;
-        this.exercise__resolvedKey = exerciseId;
-        this.lastHistory__resolvedKey = lastHistoryId;
     }
 
     @Generated(hash = 1176278852)
@@ -98,41 +100,24 @@ public class TrainingPart implements Serializable {
         this.lastHistoryId = lastHistoryId;
     }
 
-    @Generated(hash = 1906014726)
-    private transient Long lastHistory__resolvedKey;
-
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 646303154)
     public History getLastHistory() {
-        Long __key = this.lastHistoryId;
-        if (lastHistory__resolvedKey == null
-                || !lastHistory__resolvedKey.equals(__key)) {
-            final DaoSession daoSession = this.daoSession;
+        Long key = this.lastHistoryId;
+        if (key != null && lastHistory == null) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             HistoryDao targetDao = daoSession.getHistoryDao();
-            History lastHistoryNew = targetDao.load(__key);
-            synchronized (this) {
-                lastHistory = lastHistoryNew;
-                lastHistory__resolvedKey = __key;
-            }
+            lastHistory = targetDao.load(key);
         }
         return lastHistory;
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 18044317)
     public void setLastHistory(History lastHistory) {
-        synchronized (this) {
             this.lastHistory = lastHistory;
             lastHistoryId = lastHistory == null ? null : lastHistory.getId();
-            lastHistory__resolvedKey = lastHistoryId;
-        }
     }
-
-    @Generated(hash = 1987934211)
-    private transient Long exercise__resolvedKey;
 
     /** To-one relationship, resolved on first access. */
     @Keep
@@ -149,11 +134,9 @@ public class TrainingPart implements Serializable {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Keep
     public void setExercise(Exercise exercise) {
             this.exercise = exercise;
             exerciseId = exercise == null ? null : exercise.getId();
-            exercise__resolvedKey = exerciseId;
     }
 
     /**
@@ -190,12 +173,6 @@ public class TrainingPart implements Serializable {
             throw new DaoException("Entity is detached from DAO context");
         }
         myDao.update(this);
-    }
-
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 
     /** called by internal mechanisms, do not call yourself. */

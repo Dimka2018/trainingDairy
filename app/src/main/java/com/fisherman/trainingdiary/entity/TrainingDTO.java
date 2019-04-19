@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class TrainingDTO {
 
-    private String ExerciseName;
+    private String exerciseName;
 
     private Integer NumberSets;
 

@@ -973,6 +973,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/fisherman/trainingdiary/entity/Trainee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/fisherman/trainingdiary/entity/TrainingDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/fisherman/trainingdiary/entity/TrainingPart.java">
           <value>
             <set />

@@ -56,7 +56,7 @@ public class SQLiteExerciseDao implements ExerciseDao {
     @Override
     public Exercise getExerciseByName(String name) {
         return  exerciseDao.queryBuilder().where(com.fisherman.trainingdiary.entity.ExerciseDao
-                .Properties.Name.eq(name)).build().unique();
+                .Properties.Name.eq(name)).unique();
     }
 
     @Override

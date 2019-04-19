@@ -21,6 +21,7 @@ import com.fisherman.trainingdiary.databinding.TrainingPatternBinding;
 import com.fisherman.trainingdiary.dto.WorkoutDTO;
 import com.fisherman.trainingdiary.entity.History;
 import com.rey.material.widget.CompoundButton;
+import com.rey.material.widget.Spinner;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -54,6 +55,7 @@ public class TrainingView extends FrameLayout implements TrainingViewContract.Vi
     @ViewById View setNumber;
     @ViewById EditText weight;
 
+    @Inject Spinner.OnItemSelectedListener listener;
     @Inject EntitySource weightEntitySource;
     @Inject Toast toast;
 
@@ -76,6 +78,7 @@ public class TrainingView extends FrameLayout implements TrainingViewContract.Vi
     void setupView() {
         weightSpinner.setEntitySource(weightEntitySource, R.layout.no_frame_spinner_element,
                 R.layout.no_frame_spinner_dropdown);
+        weightSpinner.setOnNewElementSelectedListener(listener);
         binding.setWorkoutDto(workoutDTO);
         binding.setHistory(history);
         binding.setCurrentSet(set);

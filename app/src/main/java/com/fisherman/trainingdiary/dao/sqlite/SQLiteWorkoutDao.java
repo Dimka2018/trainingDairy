@@ -3,6 +3,7 @@ package com.fisherman.trainingdiary.dao.sqlite;
 import com.fisherman.trainingdiary.dao.WorkoutDao;
 import com.fisherman.trainingdiary.entity.DaoSession;
 import com.fisherman.trainingdiary.entity.Day;
+import com.fisherman.trainingdiary.entity.Profile;
 import com.fisherman.trainingdiary.entity.ProfileDao;
 import com.fisherman.trainingdiary.entity.TrainingPart;
 import com.fisherman.trainingdiary.entity.Workout;
@@ -65,6 +66,9 @@ public class SQLiteWorkoutDao implements WorkoutDao {
     public boolean isWorkoutExists(Workout workout) {
         QueryBuilder builder = daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
                 .WorkoutDao.Properties.Name.eq(workout.getName()));
+        builder.join(com
+                .fisherman.trainingdiary.entity.WorkoutDao.Properties.ProfileId, Profile.class).where(ProfileDao
+                .Properties.IsActive.eq(true));
         if (workout.getId() != null) {
             builder.where(com.fisherman
                     .trainingdiary.entity.WorkoutDao.Properties.Id
@@ -75,8 +79,11 @@ public class SQLiteWorkoutDao implements WorkoutDao {
 
     @Override
     public Workout getActive() {
-        return daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
-                .WorkoutDao.Properties.IsActive.eq(true)).unique();
+        QueryBuilder<Workout> builder = daoSession.getWorkoutDao().queryBuilder().where(com.fisherman.trainingdiary.entity
+                .WorkoutDao.Properties.IsActive.eq(true));
+        builder.join(com.fisherman.trainingdiary.entity.WorkoutDao.Properties.ProfileId, Profile
+                .class).where(ProfileDao.Properties.IsActive.eq(true));
+        return builder.unique();
     }
 
     private void refreshId(Workout workout) {
