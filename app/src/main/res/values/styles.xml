@@ -16,6 +16,7 @@
     </style>
 
     <style name="spinner_style" >
+        <item name="android:popupBackground">@color/transparent</item>
         <item name="spn_labelEnable">false</item>
         <item name="spn_labelPadding">0dp</item>
         <item name="spn_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
@@ -26,8 +27,13 @@
         <item name="spn_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
         <item name="spn_arrowSize">0dp</item>
         <item name="spn_popupItemAnimation">@anim/abc_slide_in_bottom</item>
-        <item name="spn_popupItemAnimOffset">100</item>
+        <item name="spn_popupItemAnimOffset">50</item>
 
+    </style>
+
+    <style name="swipe_menu_style">
+        <item name="android:scrollbarThumbVertical">@color/transparent</item>
+        <item name="android:scrollbarTrackVertical">@color/transparent</item>
     </style>
 
 
@@ -62,6 +68,7 @@
     </style>
     
     <style name="no_frame_spinner_style">
+        <item name="android:popupBackground">@color/transparent</item>
         <item name="spn_labelEnable">false</item>
         <item name="spn_labelPadding">0dp</item>
         <item name="spn_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
@@ -72,7 +79,7 @@
         <item name="spn_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
         <item name="spn_arrowSize">0dp</item>
         <item name="spn_popupItemAnimation">@anim/abc_slide_in_bottom</item>
-        <item name="spn_popupItemAnimOffset">100</item>
+        <item name="spn_popupItemAnimOffset">50</item>
     </style>
 
     <style name = "full_screen_dialog_style" parent="@android:style/Theme">

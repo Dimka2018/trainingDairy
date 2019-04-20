@@ -53,16 +53,16 @@ public class StatisticActivity extends AppCompatActivity implements StatisticCon
         Spinner.OnItemSelectedListener selectedListener = new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(Spinner parent, View view, int position, long id) {
-                refreshGraph((Exercise) exerciseSpinner.getSelectedItem(), (MassType) weightSpinner
-                        .getSelectedItem
-                                ());
+                MassType massType = (MassType) weightSpinner.getSelectedItem();
+                axisY.setName(massType.getName());
+                refreshGraph((Exercise) exerciseSpinner.getSelectedItem(), massType);
             }
         };
         exerciseSpinner.setOnItemSelectedListener(selectedListener);
         weightSpinner.setOnItemSelectedListener(selectedListener);
         graph.setValueSelectionEnabled(true);
         axisX.setName(getString(R.string.workout));
-        axisY.setName(getString(R.string.weight));
+
     }
 
     @AfterInject

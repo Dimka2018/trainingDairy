@@ -48,7 +48,6 @@
                 app:spn_labelTextSize="40sp"
                 android:layout_centerInParent="true"
                 style="@style/no_frame_spinner_style">
-
             </com.rey.material.widget.Spinner>
 
         </RelativeLayout>

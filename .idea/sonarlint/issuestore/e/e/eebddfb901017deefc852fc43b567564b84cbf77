@@ -1,6 +1,0 @@
-
-=squid:S3010"(Remove this assignment of "NEW_ELEMENT".(ַצח
-ˆ"squid:ClassVariableVisibilityCheck"WMake NEW_ELEMENT a static final constant or non-public and provide accessors if needed.(ץע¬פרÿÿÿÿ
-psquid:S3008"VRename this field "NEW_ELEMENT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ץע¬פרÿÿÿÿ
-Ksquid:S1444"1Make this "public static NEW_ELEMENT" field final(ץע¬פרÿÿÿÿ
-=squid:S3010"(Remove this assignment of "NEW_ELEMENT".(ַצח
